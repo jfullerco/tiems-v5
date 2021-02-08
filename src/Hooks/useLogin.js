@@ -4,23 +4,26 @@ function useLogin() {
 
   const [userLoggedIn, setUserLoggedIn] = useState(false)
   const [clientLoggedIn, setClientLoggedIn] = useState(null)
+  
 
-  const Login = (user, pass, id) => {
+  const loginUser = () => {
+    const {user, pass} = event.target
 
     setUserLoggedIn(true)
-    setClientLoggedIn()
-    return {userLoggedIn, clientLoggedIn}
-
+    setClientLoggedIn(user)
+    
   }
 
-  const Logout = () => {
+  const logoutUser = () => {
 
     setUserLoggedIn(false)
     setClientLoggedIn(null)
 
-    return {userLoggedIn, clientLoggedIn}
+    return <div>Logged Out</div>
 
   }
+
+  return {userLoggedIn, clientLoggedIn, loginUser, logoutUser}
 
 }
 export default useLogin
