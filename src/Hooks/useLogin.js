@@ -1,16 +1,23 @@
 import React, {useState, useEffect} from 'react'
+import loginService from '../Services/loginService'
 
-function useLogin() {
+const useLogin = () => {
 
   const [userLoggedIn, setUserLoggedIn] = useState(false)
   const [clientLoggedIn, setClientLoggedIn] = useState(null)
-  
 
-  const loginUser = () => {
-    const {user, pass} = event.target
-
-    setUserLoggedIn(true)
-    setClientLoggedIn(user)
+  const loginUser = ({user, pass}) => {
+    console.log(user)
+    
+    loginService(user, pass)
+    .then(res => {
+      const {tiemsUser, tiemsPass, tiemsClientID} = res.data[0]
+      if (tiemsUser == user && tiemsPass == pass)
+      setUserLoggedIn(true),
+      setClientLoggedIn(tiemsClientID)
+      else
+      console.log("incorrect")
+    })
     
   }
 
@@ -19,12 +26,14 @@ function useLogin() {
     setUserLoggedIn(false)
     setClientLoggedIn(null)
 
-    return <div>Logged Out</div>
-
+    return (
+      <div>Logged Out</div>
+    )
   }
 
-  return {userLoggedIn, clientLoggedIn, loginUser, logoutUser}
+  return {userLoggedIn, clientLoggedIn, loginUser}
 
 }
+
 export default useLogin
 

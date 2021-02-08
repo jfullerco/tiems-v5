@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
+import http from './http-common'
 
-const loginService = () => {
-  const url = 'https://tiems-d1ca.restdb.io/rest/client-access'
-  
+const loginService = user => {
+
+  return http.get(`/rest/client-access?q={"tiemsUser": "${user}"}`)
+
 }
+export default loginService
