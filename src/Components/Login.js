@@ -32,7 +32,7 @@ export default function Login() {
       </button>
       
       <div className="error"><h6>{loginHook.loginErrors}</h6></div>
-
+      <div>{console.log(loginHook.clientLoggedIn)}</div>
     </div>
   )
 
