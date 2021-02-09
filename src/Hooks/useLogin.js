@@ -10,8 +10,15 @@ const useLogin = () => {
   const loginUser = async ({user, pass}) => {
     console.log(user)
     const {data} = await loginService(user, pass)
-      data ? (  
-        console.log(data)
+      data[0].length == 1 ? (  
+        data[0].tiemsUser == user && data[0].tiemsPass == pass ? 
+          (
+            
+            console.log(data[0])
+            
+          ) : (
+            setLoginErrors("Incorrect username or password")
+          )
         
       ) : (
         setLoginErrors("Incorrect username or password")
