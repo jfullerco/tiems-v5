@@ -8,14 +8,14 @@ const useLogin = () => {
   const [loginErrors, setLoginErrors] = useState("")
 
   const loginUser = ({user, pass}) => {
-    
+    console.log(user)
     loginService(user, pass)
     .then(res => {
       const {tiemsUser, tiemsPass, tiemsClientID} = res.data[0]
-      if (tiemsUser == user && tiemsPass == pass) {
-      setClientLoggedIn(tiemsClientID)}
+      if (tiemsUser == user && tiemsPass == pass) 
+      console.log(tiemsClientID)
       else
-      {setLoginErrors("Incorrect Username or Password")}
+      console.log("Incorrect Username or Password")
       
     })
     

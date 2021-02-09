@@ -11,13 +11,13 @@ export default function Login() {
   
   const loginHook = useLogin()
 
-  const attemptLogin = e => {
-    e.preventDefault()
+  const attemptLogin = () => {
+    
     
     loginHook.loginUser(loginAttempt)
   }
 
-  console.log(loginHook.clientLoggedIn)
+  console.log(loginAttempt)
 
   return(
     <div>
@@ -31,7 +31,7 @@ export default function Login() {
         placeholder="pass"
         onChange={e => setLoginAttempt({...loginAttempt, pass: e.target.value})}
       />
-      <button type="button" onClick={attemptLogin}>Login</button>
+      <button type="button" onClick={() => attemptLogin()}>Login</button>
       <p />
       {console.log(loginHook.loginErrors)}
 
