@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from 'react'
-import useLogin, {loginUser} from '../Hooks/useLogin'
+import useLogin from '../Hooks/useLogin'
 
 export default function Login() {
 
+  
   const [loginAttempt, setLoginAttempt] = useState({
     user: "", 
     pass: ""
     })
+  
   const loginHook = useLogin()
 
   const attemptLogin = e => {
     e.preventDefault()
+    
     loginHook.loginUser(loginAttempt)
   }
 
@@ -29,7 +32,8 @@ export default function Login() {
         onChange={e => setLoginAttempt({...loginAttempt, pass: e.target.value})}
       />
       <button type="button" onClick={attemptLogin}>Login</button>
-
+      <p />
+      {console.log(loginHook.loginErrors)}
 
     </div>
   )

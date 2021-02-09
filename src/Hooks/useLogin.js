@@ -5,18 +5,18 @@ const useLogin = () => {
 
   const [userLoggedIn, setUserLoggedIn] = useState(false)
   const [clientLoggedIn, setClientLoggedIn] = useState(null)
+  const [loginErrors, setLoginErrors] = useState("")
 
   const loginUser = ({user, pass}) => {
-    console.log(user)
     
     loginService(user, pass)
     .then(res => {
       const {tiemsUser, tiemsPass, tiemsClientID} = res.data[0]
-      if (tiemsUser == user && tiemsPass == pass)
-      setUserLoggedIn(true),
-      setClientLoggedIn(tiemsClientID)
+      if (tiemsUser == user && tiemsPass == pass) {
+      setClientLoggedIn(tiemsClientID)}
       else
-      console.log("incorrect")
+      {setLoginErrors("Incorrect Username or Password")}
+      
     })
     
   }
@@ -31,7 +31,7 @@ const useLogin = () => {
     )
   }
 
-  return {userLoggedIn, clientLoggedIn, loginUser}
+  return {userLoggedIn, clientLoggedIn, loginUser, loginErrors}
 
 }
 
