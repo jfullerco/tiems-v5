@@ -4,18 +4,18 @@ import loginService from '../Services/loginService'
 const useLogin = () => {
 
   const [userLoggedIn, setUserLoggedIn] = useState(false)
-  const [clientLoggedIn, setClientLoggedIn] = useState({})
+  const [clientLoggedIn, setClientLoggedIn] = useState()
   const [loginErrors, setLoginErrors] = useState("")
 
   const loginUser = async ({user, pass}) => {
-    console.log(user)
-    const {data} = await loginService(user, pass)
-      data[0].length == 1 ? (  
-        data[0].tiemsUser == user && data[0].tiemsPass == pass ? 
+    
+    const {data: [login]} = await loginService(user, pass)
+    
+      login != null ? (  
+        login.tiemsUser == user && login.tiemsPass == pass ? 
           (
-            
-            console.log(data[0])
-            
+            setClientLoggedIn(login.tiemsClientID),
+            console.log(clientLoggedIn)
           ) : (
             setLoginErrors("Incorrect username or password")
           )
@@ -38,15 +38,6 @@ const useLogin = () => {
   return {userLoggedIn, clientLoggedIn, loginUser, loginErrors}
 
 }
-
-/*data[0].tiemsUser == user && data[0].tiemsPass == pass ? 
-          (
-            
-            console.log(client),
-            setClientLoggedIn(client)
-          ) : (
-            setLoginErrors("Incorrect username or password")
-          )*/
 
 export default useLogin
 
