@@ -1,3 +1,4 @@
-h1, p {
-  font-family: Lato;
+.error h6{
+  color: crimson;
+  font-style: italic;
 }
