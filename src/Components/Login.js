@@ -11,23 +11,35 @@ export default function Login() {
   const attemptLogin = () => {
     
     loginHook.loginUser(loginAttempt)
+    setLoginAttempt([])
+
+  }
+
+  const handleInputChange = event => {
+    const {name, value} = event.target
+    setLoginAttempt({...loginAttempt, [name]: value})
+    
   }
 
   return(
     <div>
+      
       <input
         type="text"
         placeholder="user"
-        onChange={e => setLoginAttempt({...loginAttempt, user: e.target.value})}
+        name="user"
+        onChange={handleInputChange}
       />
       <input
         type="password"
         placeholder="pass"
-        onChange={e => setLoginAttempt({...loginAttempt, pass: e.target.value})}
+        name="pass"
+        onChange={handleInputChange}
       />
+      
       <button
-       type="button" 
-       onClick={() => attemptLogin(loginAttempt)}>
+       type="submit" 
+       onClick={attemptLogin}>
         Login
       </button>
       
