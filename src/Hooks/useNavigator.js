@@ -11,10 +11,6 @@ import Dashboard from '../Components/Dashboard.js'
 
 const useNavigator = () => {
 
-const navList = {
-  dashboard: () => <Dashboard />
-}
-
 const [nav, setNav] = useState()
 
 return {nav, setNav}
