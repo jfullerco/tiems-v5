@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import useLogin from '../Hooks/useLogin'
 
 export default function Login() {
 
-  
   const [loginAttempt, setLoginAttempt] = useState()
   
   const loginHook = useLogin()

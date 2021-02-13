@@ -1,19 +1,19 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect} from "react";
 import Login from './Components/Login'
 import Dashboard from './Components/Dashboard'
-import {tiemsContext} from './tiemsContext'
 
 import "./style.css";
 
-export default function App(props) {
+
+
+export default function App() {
   
-console.log(pageContext)
   return (
-    <tiemsContext.Provider value={}>
+    
     <div className="container">
       <h5>TIEMS</h5>
-      
+      <Login />
     </div>
-    </tiemsContext.Provider>
+   
   );
 }

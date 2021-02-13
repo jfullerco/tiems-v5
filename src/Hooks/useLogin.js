@@ -4,7 +4,7 @@ import loginService from '../Services/loginService'
 const useLogin = () => {
 
   const [userLoggedIn, setUserLoggedIn] = useState(false)
-  const [clientLoggedIn, setClientLoggedIn] = useState("")
+  const [clientLoggedIn, setClientLoggedIn] = useState("false")
   const [loginErrors, setLoginErrors] = useState("")
 
   const loginUser = async ({user, pass}) => {
