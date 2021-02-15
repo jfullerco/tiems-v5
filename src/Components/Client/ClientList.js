@@ -4,12 +4,13 @@ import {useQuery,
         useQueryClient,
         QueryClient,
         QueryClientProvider} from 'react-query'
-import {getClient} from '../Services/clientService'
+import {getClient} from '../../Services/clientService'
 
 const ClientList = () => {
   const queryClient = useQueryClient
   const query = useQuery('clients', getClient)
   console.log(query)
+  
   return (
 
     <div>
@@ -20,3 +21,4 @@ const ClientList = () => {
   )
 
 }
+export default ClientList

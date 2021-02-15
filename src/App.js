@@ -6,6 +6,7 @@ import {useQuery,
         useQueryClient,
         QueryClient,
         QueryClientProvider} from 'react-query'
+import ClientList from './Components/Client/ClientList'
 
 import "./style.css";
 
@@ -19,6 +20,7 @@ export default function App() {
       <h5>TIEMS</h5>
       <QueryClientProvider value={queryClient}>
         <Login />
+        <ClientList/>
       </QueryClientProvider>
     </div>
    
