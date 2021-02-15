@@ -3,7 +3,7 @@ import loginService from '../Services/loginService'
 
 const useLogin = () => {
 
-  const [userLoggedIn, setUserLoggedIn] = useState(false)
+  const [userLoggedIn, setUserLoggedIn] = useState()
   const [clientLoggedIn, setClientLoggedIn] = useState("false")
   const [loginErrors, setLoginErrors] = useState("")
 
@@ -15,7 +15,7 @@ const useLogin = () => {
         login.tiemsUser == user && login.tiemsPass == pass ? 
           (
             //setClientLoggedIn(login.tiemsClientID),
-            setClientLoggedIn(true),
+            setClientLoggedIn(login.tiemsClientID),
             setUserLoggedIn("User logged In")
           ) : (
             setLoginErrors("Incorrect username or password")

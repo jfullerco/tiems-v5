@@ -4,8 +4,11 @@ import {useQuery,
         useQueryClient,
         QueryClient,
         QueryClientProvider} from 'react-query'
+import {getClient} from '../Services/clientService'
 
 const useClient = () => {
   const queryClient = useQueryClient
-  const query = 
+  const query = useQuery('clients', getClient)
+  
+
 }
