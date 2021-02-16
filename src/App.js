@@ -16,9 +16,10 @@ export default function App() {
   return (
     <div className="container">
       <h5>TIEMS</h5>
-      
+    <QueryClientProvider client={queryClient}>  
         <Login />
-        
+        <Dashboard />
+    </QueryClientProvider>    
       
     </div>
    

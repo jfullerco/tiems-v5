@@ -5,7 +5,7 @@ import {useQuery,
         QueryClient,
         QueryClientProvider} from 'react-query'
 import {clientLoggedIn} from '../../Hooks/useLogin'
-import getClient from '../../Services/clientService'
+import getClient from '../Services/clientService'
 
 const Dashboard = () => {
   const {status, data, isFetching, error} = useQuery('client', getClient)
