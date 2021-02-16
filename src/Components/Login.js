@@ -22,7 +22,7 @@ export default function Login() {
 
   return(
     <div>
-      
+     
       <input
         type="text"
         placeholder="user"
@@ -44,6 +44,8 @@ export default function Login() {
       
       <div className="error"><h6>{loginHook.loginErrors}</h6></div>
       <div>{console.log(loginHook.clientLoggedIn)}</div>
+    
+     
     </div>
   )
 
