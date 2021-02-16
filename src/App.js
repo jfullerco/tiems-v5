@@ -12,13 +12,13 @@ import "./style.css";
 
 
 export default function App() {
-  const {status, data, isFetching, error} = useQuery('client', Login)
+  
   return (
     <div className="container">
       <h5>TIEMS</h5>
       
         <Login />
-        <ClientList/>
+        
       
     </div>
    
