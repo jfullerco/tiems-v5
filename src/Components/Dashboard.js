@@ -9,6 +9,7 @@ import getClient from '../Services/clientService'
 
 const Dashboard = () => {
   const {status, data, isFetching, error} = useQuery('client', getClient)
+  console.log(data)
   return (
     <div>
       <h5>Dashboard</h5>

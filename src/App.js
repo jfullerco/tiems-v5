@@ -10,6 +10,7 @@ import ClientList from './Components/Client/ClientList'
 
 import "./style.css";
 
+const queryClient = new QueryClient()
 
 export default function App() {
   
