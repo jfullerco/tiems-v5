@@ -4,10 +4,9 @@ import Login from './Login'
 import useLogin from '../Hooks/useLogin'
 
 const Dashboard = () => {
-  
-  //Check loggedIn
-  const {clientLoggedIn} = useLogin()
-  
+
+   const {clientLoggedIn} = useLogin()
+  console.log(clientLoggedIn)
   return (
     <div>
       {(clientLoggedIn != false) ? (

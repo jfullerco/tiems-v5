@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Dashboard from '../Pages/Dashboard'
 
 import loginService from '../Services/loginService'
 
@@ -17,8 +18,8 @@ const useLogin = () => {
           (
             
             await setClientLoggedIn(true),
-            await setClientLoggedInID(login.tiemsClientID)
-
+            await setClientLoggedInID(login.tiemsClientID),
+            <Dashboard />
           ) : (
 
             setLoginErrors("Incorrect username or password")
@@ -30,7 +31,7 @@ const useLogin = () => {
         setLoginErrors("Incorrect username or password")
 
       )
-      return clientLoggedIn
+    
   }
 
   const logoutUser = () => {

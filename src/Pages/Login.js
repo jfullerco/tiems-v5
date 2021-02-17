@@ -8,20 +8,15 @@ export default function Login() {
   
   const loginHook = useLogin()
   const {clientLoggedIn} = loginHook
-  
-  useEffect(() => {
-    <Dashboard />
-  }, [clientLoggedIn])
 
   const attemptLogin = (e) => {
     e.preventDefault()
     loginHook.loginUser(loginAttempt)
-    console.log(loginAttempt)
-
+    return () => <Dashboard/>
   }
 
   const handleInputChange = event => {
-    event.preventDefault()
+    
     const {name, value} = event.target
     setLoginAttempt({...loginAttempt, [name]: value})
   }
