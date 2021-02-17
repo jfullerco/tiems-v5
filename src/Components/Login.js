@@ -8,6 +8,7 @@ export default function Login() {
   
   const loginHook = useLogin()
   const {clientLoggedIn} = loginHook
+  const {logoutUser} = loginHook
 
   const attemptLogin = () => {
     
@@ -49,7 +50,8 @@ export default function Login() {
           <div className="error"><h6>{loginHook.loginErrors}</h6></div>
         </div>
       ) :(
-    <Dashboard /> 
+    <><Dashboard /> 
+    <button onClick={()=>logoutUser()}>Logout</button></>
       )}
     </div>
   )

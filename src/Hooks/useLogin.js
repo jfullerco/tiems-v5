@@ -1,15 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import {useQuery,
-        useMutation,
-        useQueryClient,
-        QueryClient,
-        QueryClientProvider} from 'react-query'
+import Dashboard from '../Components/Dashboard'
 import loginService from '../Services/loginService'
 
 const useLogin = () => {
 
-  const [userLoggedIn, setUserLoggedIn] = useState()
-  const [clientLoggedIn, setClientLoggedIn] = useState("false")
+  const [clientLoggedIn, setClientLoggedIn] = useState(false)
   const [loginErrors, setLoginErrors] = useState("")
 
   const loginUser = async ({user, pass}) => {
@@ -21,7 +16,8 @@ const useLogin = () => {
           (
             //setClientLoggedIn(login.tiemsClientID),
             setClientLoggedIn(login.tiemsClientID),
-            setUserLoggedIn("User logged In")
+            
+            () => <Dashboard />
           ) : (
             setLoginErrors("Incorrect username or password")
           )
@@ -33,15 +29,14 @@ const useLogin = () => {
 
   const logoutUser = () => {
 
-    setUserLoggedIn(false)
-    setClientLoggedIn(null)
+    setClientLoggedIn(false)
 
     return (
       <div>Logged Out</div>
     )
   }
 
-  return {userLoggedIn, clientLoggedIn, loginUser, loginErrors}
+  return {clientLoggedIn, loginUser, loginErrors, logoutUser}
 
 }
 
