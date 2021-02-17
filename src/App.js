@@ -19,7 +19,7 @@ export default function App() {
       <h5>TIEMS</h5>
     <QueryClientProvider client={queryClient}>  
         <Login />
-        <Dashboard />
+        
     </QueryClientProvider>    
       
     </div>
