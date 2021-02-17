@@ -1,26 +1,21 @@
-import React, {useState, useEffect} from "react";
-import Login from './Components/Login'
-import Dashboard from './Components/Dashboard'
+import React, {useState, useEffect} from 'react'
+
+
 import {useQuery,
         useMutation,
         useQueryClient,
         QueryClient,
         QueryClientProvider} from 'react-query'
 
+import Login from './Pages/Login'
+import Dashboard from './Pages/Dashboard'
 
-import "./style.css";
-import Test from './test'
+import "./style.css"
+
 
 const queryClient = new QueryClient()
 
 export default function App() {
-  
-  const Link = (trigger => {
-    return <div> {props.children} </div>
-  }) => {
-    return {trigger}
-     
-  }
 
 
   return (
@@ -30,7 +25,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>  
         
         <Login />
-        <Link onClick={} >Test</Link>
+        
     </QueryClientProvider>    
       
     </div>
