@@ -1,32 +1,22 @@
 import React, {useState, useEffect} from 'react'
-import {useQuery,
-        useMutation,
-        useQueryClient,
-        QueryClient,
-        QueryClientProvider} from 'react-query'
-import {clientLoggedIn} from '../../Hooks/useLogin'
-import getClient from '../Services/clientService'
-import SiteList from './Sites/SiteList'
+
+import Login from './Login'
+import useLogin from '../Hooks/useLogin'
 
 const Dashboard = () => {
   
-  const query = useQuery('client', getClient)
-  const {isLoading, isError, data, error} = query
-
-  if (isLoading) {
-    return <span> Loading...</span>
-  }
-
-  if (isError) {
-    return <span>Error Loading: {error.message}</span>
-  }
-
+  //Check loggedIn
+  const {clientLoggedIn} = useLogin()
+  
   return (
     <div>
+      {(clientLoggedIn != false) ? (
+      
       <h5>Dashboard</h5>
 
-      Hello {data.client_name}
-      <SiteList/>
+      ) : (
+        <Login />
+      )}
     </div>
   )
 }

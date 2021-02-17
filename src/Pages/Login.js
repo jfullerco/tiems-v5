@@ -4,29 +4,33 @@ import Dashboard from './Dashboard'
 
 export default function Login() {
 
-  const [loginAttempt, setLoginAttempt] = useState()
+  const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   
   const loginHook = useLogin()
   const {clientLoggedIn} = loginHook
   
+  useEffect(() => {
+    <Dashboard />
+  }, [clientLoggedIn])
 
-  const attemptLogin = () => {
-    
+  const attemptLogin = (e) => {
+    e.preventDefault()
     loginHook.loginUser(loginAttempt)
-    
+    console.log(loginAttempt)
+
   }
 
   const handleInputChange = event => {
+    event.preventDefault()
     const {name, value} = event.target
     setLoginAttempt({...loginAttempt, [name]: value})
   }
 
-  console.log(clientLoggedIn)
+  console.log(loginHook.clientLoggedInID)
 
   return(
     <div>
-      {clientLoggedIn != true ? (
-        <form><div>  
+       <form onSubmit={attemptLogin}>  
           <input
             type="text"
             placeholder="user"
@@ -40,18 +44,14 @@ export default function Login() {
             onChange={handleInputChange}
           />
           
-          <button
-          type="submit" 
-          onClick={attemptLogin}>
-            Login
-          </button>
+          <input
+            type="submit" 
+            value="Login"
+          />
+            
           
           <div className="error"><h6>{loginHook.loginErrors}</h6></div>
-        </div></form>
-      ) :(
-    <form><Dashboard /> 
-    <button type="submit" onClick={loginHook.logoutUser}>Logout</button></form>
-      )}
+        </form>
     </div>
   )
 

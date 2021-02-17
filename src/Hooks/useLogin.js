@@ -1,21 +1,23 @@
 import React, {useState, useEffect} from 'react'
-import Dashboard from '../Pages/Dashboard'
+
 import loginService from '../Services/loginService'
 
 const useLogin = () => {
 
   const [clientLoggedIn, setClientLoggedIn] = useState(false)
+  const [clientLoggedInID, setClientLoggedInID] = useState()
   const [loginErrors, setLoginErrors] = useState("")
 
   const loginUser = async ({user, pass}) => {
-    
+    console.log({user, pass})
     const {data: [login]} = await loginService(user, pass)
-    
+      
       login != null ? (  
         login.tiemsUser == user && login.tiemsPass == pass ? 
           (
             
-            setClientLoggedIn(true)
+            await setClientLoggedIn(true),
+            await setClientLoggedInID(login.tiemsClientID)
 
           ) : (
 
@@ -40,7 +42,7 @@ const useLogin = () => {
     )
   }
 
-  return {clientLoggedIn, loginUser, loginErrors, logoutUser}
+  return {clientLoggedIn, clientLoggedInID, loginUser, loginErrors, logoutUser}
 
 }
 

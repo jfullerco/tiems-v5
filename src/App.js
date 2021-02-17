@@ -7,13 +7,11 @@ import {useQuery,
         QueryClient,
         QueryClientProvider} from 'react-query'
 
-import Login from './Pages/Login'
 import Dashboard from './Pages/Dashboard'
 
 import "./style.css"
 
 export default function App() {
-
 
   return (
     <Router>
@@ -21,9 +19,7 @@ export default function App() {
       <div className="container"> 
       
       <h5>TIEMS</h5>
-      
-      <Route exact path="/" component={Login} />
-      
+
       <Route path="/" component={Dashboard} />
     
       </div>
