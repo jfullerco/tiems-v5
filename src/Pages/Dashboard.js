@@ -9,7 +9,7 @@ import getClient from '../Services/clientService'
 import SiteList from './Sites/SiteList'
 
 const Dashboard = () => {
-  const queryClient = useQueryClient()
+  
   const query = useQuery('client', getClient)
   const {isLoading, isError, data, error} = query
 

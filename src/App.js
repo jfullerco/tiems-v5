@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-
+import {Route, BrowserRouter as Router} from 'react-router-dom'
 
 import {useQuery,
         useMutation,
@@ -12,23 +12,22 @@ import Dashboard from './Pages/Dashboard'
 
 import "./style.css"
 
-
-const queryClient = new QueryClient()
-
 export default function App() {
 
 
   return (
-    <div className="container">
-      <h5>TIEMS</h5>
-
-    <QueryClientProvider client={queryClient}>  
-        
-        <Login />
-        
-    </QueryClientProvider>    
+    <Router>
       
-    </div>
-   
+      <div className="container"> 
+      
+      <h5>TIEMS</h5>
+      
+      <Route exact path="/" component={Login} />
+      
+      <Route path="/" component={Dashboard} />
+    
+      </div>
+
+    </Router>
   );
 }

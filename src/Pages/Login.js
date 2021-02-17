@@ -14,7 +14,6 @@ export default function Login() {
     
     loginHook.loginUser(loginAttempt)
     
-
   }
 
   const handleInputChange = event => {
