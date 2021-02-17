@@ -14,10 +14,9 @@ const useLogin = () => {
       login != null ? (  
         login.tiemsUser == user && login.tiemsPass == pass ? 
           (
-            //setClientLoggedIn(login.tiemsClientID),
-            setClientLoggedIn(login.tiemsClientID),
+            setClientLoggedIn(true),
             
-            () => <Dashboard />
+            <Dashboard />
           ) : (
             setLoginErrors("Incorrect username or password")
           )

@@ -8,12 +8,12 @@ export default function Login() {
   
   const loginHook = useLogin()
   const {clientLoggedIn} = loginHook
-  const {logoutUser} = loginHook
+  
 
   const attemptLogin = () => {
     
     loginHook.loginUser(loginAttempt)
-    setLoginAttempt([])
+    
 
   }
 
@@ -26,8 +26,8 @@ export default function Login() {
 
   return(
     <div>
-      {clientLoggedIn ? (
-        <div>  
+      {clientLoggedIn != true ? (
+        <form><div>  
           <input
             type="text"
             placeholder="user"
@@ -48,10 +48,10 @@ export default function Login() {
           </button>
           
           <div className="error"><h6>{loginHook.loginErrors}</h6></div>
-        </div>
+        </div></form>
       ) :(
-    <><Dashboard /> 
-    <button onClick={()=>logoutUser()}>Logout</button></>
+    <form><Dashboard /> 
+    <button type="submit" onClick={loginHook.logoutUser}>Logout</button></form>
       )}
     </div>
   )

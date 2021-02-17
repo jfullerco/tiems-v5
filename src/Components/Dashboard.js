@@ -6,11 +6,13 @@ import {useQuery,
         QueryClientProvider} from 'react-query'
 import {clientLoggedIn} from '../../Hooks/useLogin'
 import getClient from '../Services/clientService'
+import SiteList from './Sites/SiteList'
 
 const Dashboard = () => {
-  
-  const {isLoading, isError, data, error} = useQuery('client', getClient)
-  
+  const queryClient = useQueryClient()
+  const query = useQuery('client', getClient)
+  const {isLoading, isError, data, error} = query
+
   if (isLoading) {
     return <span> Loading...</span>
   }
@@ -24,6 +26,7 @@ const Dashboard = () => {
       <h5>Dashboard</h5>
 
       Hello {data.client_name}
+      <SiteList/>
     </div>
   )
 }
