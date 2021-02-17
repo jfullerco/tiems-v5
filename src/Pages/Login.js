@@ -10,9 +10,9 @@ export default function Login() {
   const {clientLoggedIn} = loginHook
 
   const attemptLogin = (e) => {
-    e.preventDefault()
+    
     loginHook.loginUser(loginAttempt)
-    return () => <Dashboard/>
+    return 
   }
 
   const handleInputChange = event => {

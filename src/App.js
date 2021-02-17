@@ -8,6 +8,7 @@ import {useQuery,
         QueryClientProvider} from 'react-query'
 
 import Dashboard from './Pages/Dashboard'
+import Login from './Pages/Login'
 
 import "./style.css"
 
@@ -20,7 +21,7 @@ export default function App() {
       
       <h5>TIEMS</h5>
 
-      <Route path="/" component={Dashboard} />
+      <Route path="/" component={Login} />
     
       </div>
 

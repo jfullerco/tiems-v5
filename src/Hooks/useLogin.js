@@ -18,8 +18,8 @@ const useLogin = () => {
           (
             
             await setClientLoggedIn(true),
-            await setClientLoggedInID(login.tiemsClientID),
-            <Dashboard />
+            await setClientLoggedInID(login.tiemsClientID)
+            
           ) : (
 
             setLoginErrors("Incorrect username or password")
