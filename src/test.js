@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const Test = () => {
+const useStateStore = (props) => {
+  const initialStateStore = {
+    clientLoggedIn: "",
+    a: "false"
+  }
+  const [stateStore, setStateStore] = useState(initialStateStore)
 
-  return (
-    <div>This is a test</div>
-  )
+  const handleChange = ({name, value}) => {
+          console.log(name)
+           setStateStore({...stateStore, name: value})
+      
+      }
+
+  return {stateStore, useStateStore}, handleChange 
 }
-export default Test
+export default useStateStore

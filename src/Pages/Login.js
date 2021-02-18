@@ -2,19 +2,20 @@ import React, {useState, useEffect} from 'react'
 import useLogin from '../Hooks/useLogin'
 import Dashboard from './Dashboard'
 
-export default function Login({res}) {
+export default function Login() {
 
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   
   const handleSubmit = () => {
     
     useLogin(loginAttempt)
-    
+    const {login} = useLogin()
+    console.log(login)
     
   }
   
   const handleInputChange = event => {
-    event.preventDefault()
+    
     const {name, value} = event.target
     setLoginAttempt({...loginAttempt, [name]: value})
     
@@ -41,9 +42,7 @@ console.log(loginAttempt)
             value="Login"
             onClick={handleSubmit}
           />
-          <div className="error">
-            <h6>{useLogin.loginErrors}</h6>
-          </div>
+          
         </form>
     </div>
   )

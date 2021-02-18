@@ -8,11 +8,12 @@ const useLogin = async ({user, pass}) => {
     const [loginErrors, setLoginErrors] = useState("")
 
     const {data: [login]} = await loginService(user, pass)
+    console.log(login)
     login != null ? (  
         login.tiemsUser == user && login.tiemsPass == pass ? 
 
           (
-            console.log(login),
+            
             setClientLoggedIn(true),
             setClientLoggedInID(login.tiemsClientID)
             
@@ -27,7 +28,7 @@ const useLogin = async ({user, pass}) => {
         setLoginErrors("Incorrect username or password")
 
       )  
-   return console.log(clientLoggedIn)
+    return login
   }
 
 export default useLogin
