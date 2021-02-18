@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import Login from './Login'
 import useLogin from '../Hooks/useLogin'
 
-const Dashboard = (props) => {
+const Dashboard = ({session}) => {
 
   const [loggedIn, setLoggedIn] = useState(false)
 
@@ -17,7 +17,7 @@ const Dashboard = (props) => {
       </div>
 
       ) : (
-        <Login />
+        <Login session={session} />
       )}
     </div>
   )

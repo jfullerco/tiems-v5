@@ -1,11 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import useLogin from '../Hooks/useLogin'
 import Dashboard from './Dashboard'
+import {useStateStore} from '../test'
 
-export default function Login() {
+export default function Login({session}) {
 
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   
+  
+  
+  console.log("this", session)
   const handleSubmit = () => {
     
     useLogin(loginAttempt)

@@ -1,18 +1,17 @@
 import React, {useState} from 'react'
 
-const useStateStore = (props) => {
-  const initialStateStore = {
-    clientLoggedIn: "",
-    a: "false"
-  }
-  const [stateStore, setStateStore] = useState(initialStateStore)
 
-  const handleChange = ({name, value}) => {
-          console.log(name)
-           setStateStore({...stateStore, name: value})
+
+export const useStateStore = (initialStateStore) => {
+
+  const [stateStore, setStateStore] = useState()
+
+  const handleChange = (e) => {
+          
+           setStateStore({...stateStore, ...e})
       
       }
 
-  return {stateStore, useStateStore}, handleChange 
+  return [stateStore, handleChange]
 }
-export default useStateStore
+
