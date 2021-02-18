@@ -11,7 +11,8 @@ export const useStateStore = (initialStateStore) => {
            setStateStore({...stateStore, ...e})
       
       }
-
+  
   return [stateStore, handleChange]
 }
+
 
