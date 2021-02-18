@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import http from './http-common'
 
 const loginService = async (user) => {
-  console.log(user)
+  
   return await http.get(`/rest/client-access?q={"tiemsUser": "${user}"}&max=1`)
   
 }

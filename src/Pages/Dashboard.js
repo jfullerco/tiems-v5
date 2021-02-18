@@ -3,15 +3,18 @@ import React, {useState, useEffect} from 'react'
 import Login from './Login'
 import useLogin from '../Hooks/useLogin'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
 
-   const {clientLoggedIn} = useLogin()
-  console.log(clientLoggedIn)
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  
   return (
     <div>
-      {(clientLoggedIn != false) ? (
-      
+      {(loggedIn != false) ? (
+      <div>
       <h5>Dashboard</h5>
+      <button onClick={handleLogout}> logout </button>
+      </div>
 
       ) : (
         <Login />

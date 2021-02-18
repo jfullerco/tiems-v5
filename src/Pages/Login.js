@@ -2,30 +2,28 @@ import React, {useState, useEffect} from 'react'
 import useLogin from '../Hooks/useLogin'
 import Dashboard from './Dashboard'
 
-export default function Login() {
+export default function Login({res}) {
 
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   
-  const loginHook = useLogin()
-  const {clientLoggedIn} = loginHook
-
-  const attemptLogin = (e) => {
+  const handleSubmit = () => {
     
-    loginHook.loginUser(loginAttempt)
-    return 
+    useLogin(loginAttempt)
+    
+    
   }
-
+  
   const handleInputChange = event => {
-    
+    event.preventDefault()
     const {name, value} = event.target
     setLoginAttempt({...loginAttempt, [name]: value})
+    
   }
-
-  console.log(loginHook.clientLoggedInID)
-
+  
+console.log(loginAttempt)
   return(
     <div>
-       <form onSubmit={attemptLogin}>  
+       <form >  
           <input
             type="text"
             placeholder="user"
@@ -38,14 +36,14 @@ export default function Login() {
             name="pass"
             onChange={handleInputChange}
           />
-          
           <input
-            type="submit" 
+            type="button" 
             value="Login"
+            onClick={handleSubmit}
           />
-            
-          
-          <div className="error"><h6>{loginHook.loginErrors}</h6></div>
+          <div className="error">
+            <h6>{useLogin.loginErrors}</h6>
+          </div>
         </form>
     </div>
   )

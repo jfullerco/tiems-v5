@@ -21,7 +21,7 @@ export default function App() {
       
       <h5>TIEMS</h5>
 
-      <Route path="/" component={Login} />
+      <Dashboard />
     
       </div>
 
