@@ -5,10 +5,10 @@ import loginService from '../Services/loginService'
 const useLogin = async ({user, pass}) => {
     
     const [loginErrors, setLoginErrors] = useState("")
-    const {loginState, updateLoginState} = useContext
     
+    console.log(`this${user}`)
     const {data: [login]} = await loginService(user, pass)
-    console.log(login)
+    
     login != null ? (  
         login.tiemsUser == user && login.tiemsPass == pass ? 
 

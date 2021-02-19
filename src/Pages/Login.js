@@ -8,7 +8,7 @@ export default function Login() {
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   
   const handleSubmit = () => {
-    console.log(loginAttempt)
+    
     useLogin(loginAttempt)
     
   }
@@ -23,7 +23,7 @@ export default function Login() {
 
   return(
     <div>
-       <form onSubmit={handleSubmit}>  
+       <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="user"
@@ -41,11 +41,12 @@ export default function Login() {
           <input
             type="submit"
             value="Login"
-             
+            
           />
+          </form>
           
           
-        </form>
+        
     </div>
   )
 
