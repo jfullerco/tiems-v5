@@ -1,23 +1,19 @@
 import React, {useState, createContext} from 'react'
 
+const initialState = {
+  clientLoggedIn: false
+}
 
-export const stateContext = createContext()
-export const stateProvider = ({children}) => {
-  export const useStateStore = (initialStateStore) => {
-
-    const [stateStore, setStateStore] = useState()
-
-    const handleChange = (e) => {
-            
-            setStateStore({...stateStore, ...e})
-        
-        }
+export const StateContext = createContext(initialState)
+export const StateProvider = ({children}) => {
+   
+    const [clientLoggedIn, setClientLoggedIn] = useState(false)
     
     return (
-      <stateContext.Provider value={stateStore}>
-        {props.children}
-      </stateContext.Provider>
+      <StateContext.Provider value={{clientLoggedIn, setClientLoggedIn}}>
+        {children}
+      </StateContext.Provider>
     )
-  }
+  
 }
 
