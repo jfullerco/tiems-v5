@@ -1,20 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import useLogin from '../Hooks/useLogin'
-import Dashboard from './Dashboard'
-import {useStateStore} from '../test'
+import {StateContext} from '../stateContext'
 
-export default function Login({session}) {
+
+export default function Login() {
 
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   
-  
-  
-  console.log("this", session)
   const handleSubmit = () => {
-    
+    console.log(loginAttempt)
     useLogin(loginAttempt)
-    const {login} = useLogin()
-    console.log(login)
     
   }
   
@@ -25,27 +20,30 @@ export default function Login({session}) {
     
   }
   
-console.log(loginAttempt)
+
   return(
     <div>
-       <form >  
+       <form onSubmit={handleSubmit}>  
           <input
             type="text"
             placeholder="user"
             name="user"
+            value={loginAttempt.user}
             onChange={handleInputChange}
           />
           <input
             type="password"
             placeholder="pass"
             name="pass"
+            value={loginAttempt.pass}
             onChange={handleInputChange}
           />
           <input
-            type="button" 
+            type="submit"
             value="Login"
-            onClick={handleSubmit}
+             
           />
+          
           
         </form>
     </div>

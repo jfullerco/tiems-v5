@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <StateProvider>
-    <Router>
+    
        
       <div className="container"> 
       
@@ -26,7 +26,7 @@ export default function App() {
       
       </div>
     
-    </Router>
+    
 </StateProvider>
   );
 }
