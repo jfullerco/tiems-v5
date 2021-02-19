@@ -12,18 +12,14 @@ export default function App() {
   //const clientLoggedIn = true
   //const clientID = 99999
   //const [stateStore, handleChange] = useStateStore()
-  const {clientLoggedIn, setClientLoggedIn} = useContext(StateContext)
-  console.log({setClientLoggedIn})
+  
 
   return (
     <StateProvider>
     <Router>
        
       <div className="container"> 
-      <button 
-        onClick={()=>handleChange({clientLoggedIn, clientID})}
-      >click me
-      </button>
+      
       <h5>TIEMS</h5>
       
       <Dashboard  />

@@ -1,23 +1,23 @@
-import React, {useState, useEffect} from 'react'
-
+import React, {useState, useEffect, useContext} from 'react'
+import {StateContext} from '../stateContext'
 import Login from './Login'
-import useLogin from '../Hooks/useLogin'
 
-const Dashboard = ({session}) => {
+const Dashboard = () => {
 
-  const [loggedIn, setLoggedIn] = useState(false)
-
+  const {loginState, updateLoginState} = useContext(StateContext)
   
   return (
     <div>
-      {(loggedIn != false) ? (
-      <div>
-      <h5>Dashboard</h5>
-      <button onClick={handleLogout}> logout </button>
-      </div>
-
+      {(loginState.clientLoggedIn != false) ? (
+        <div>
+          <h5>Dashboard</h5>
+          <button 
+            onClick={()=>updateLoginState}
+            value="Logout"
+          /> 
+        </div>
       ) : (
-        <Login session={session} />
+        <Login />
       )}
     </div>
   )
