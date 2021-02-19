@@ -14,9 +14,9 @@ export const stateProvider = ({children}) => {
         }
     
     return (
-      <stateProvider value={[stateStore, handleChange]}>
+      <stateContext.Provider value={stateStore}>
         {props.children}
-      </stateProvider>
+      </stateContext.Provider>
     )
   }
 }

@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Route, BrowserRouter as Router} from 'react-router-dom'
-import {stateProvider} from './stateContext'
+import {stateContext, stateProvider} from './stateContext'
 //import {useStateStore} from './test'
 import Dashboard from './Pages/Dashboard'
 import Login from './Pages/Login'
@@ -13,6 +13,7 @@ export default function App() {
   //const clientID = 99999
   //const [stateStore, handleChange] = useStateStore()
   
+  const {stateStore} = useContext(stateContext)
   
   return (
     
