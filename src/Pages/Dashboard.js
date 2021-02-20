@@ -7,21 +7,28 @@ const Dashboard = () => {
   const user = useContext(StateContext)
   
   return (
+    
     <div>
+      
       {(user.clientLoggedIn != false) ? (
-        <div>
-          <h5>Dashboard</h5>
+        <div className="row">
+          <div className="two columns">  
+            <h5>Dashboard</h5> 
+          </div>
+          
+          <div className="one column">  
           <button 
-            onClick={()=>user.setClientLoggedIn(!user.clientLoggedIn)}
-            value="Logout"
-          /> 
+            onClick={()=>user.setClientLoggedIn(!user.clientLoggedIn)} 
+            > Logout 
+            </button>
+          </div>
+        
         </div>
+
       ) : (
-        <div><Login />
-        <button 
-            onClick={()=>user.setClientLoggedIn(!user.clientLoggedIn)}
-            value="Login"
-          /> </div>
+        
+        <Login />
+        
       )}
     </div>
   )
