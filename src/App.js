@@ -9,11 +9,7 @@ import SiteList from './Pages/Sites/SiteList'
 import "./style.css"
 
 export default function App() {
-  //const clientLoggedIn = true
-  //const clientID = 99999
-  //const [stateStore, handleChange] = useStateStore()
   
-
   return (
     <StateProvider>
        
