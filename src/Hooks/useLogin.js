@@ -9,8 +9,9 @@ const useLogin = async ({user, pass}) => {
     const loginUser = useContext(StateContext)
     
     const {data: [login]} = await loginService(user, pass)
-    
-    login != null ? (  
+    return {
+      login != null ? (
+
         login.tiemsUser == user && login.tiemsPass == pass ? 
 
           (
@@ -27,7 +28,7 @@ const useLogin = async ({user, pass}) => {
         setLoginErrors("Incorrect username or password")
 
       )  
-    
+    }
   }
 
 export default useLogin
