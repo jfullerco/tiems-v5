@@ -1,6 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react'
+import {Route, Link} from 'react-router-dom'
 import {StateContext} from '../stateContext'
+
 import Login from './Login'
+import Sites from './Sites/SiteList'
 
 const Dashboard = () => {
   
@@ -11,6 +14,7 @@ const Dashboard = () => {
     <div>
       
       {(user.clientLoggedIn != false) ? (
+        
         <div className="row">
           <div className="two columns">  
             <h5>Dashboard</h5> 
@@ -23,6 +27,10 @@ const Dashboard = () => {
             </button>
           </div>
         
+        <div className="row">
+          <Route path="/sites" component={SiteList} />
+        </div>
+
         </div>
 
       ) : (

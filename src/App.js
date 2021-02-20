@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Route, BrowserRouter as Router} from 'react-router-dom'
+
 import {StateProvider, StateContext} from './stateContext'
-//import {useStateStore} from './test'
+
 import Dashboard from './Pages/Dashboard'
 import Login from './Pages/Login'
 
@@ -16,17 +17,19 @@ export default function App() {
 
   return (
     <StateProvider>
-    
        
       <div className="container"> 
       
-      <h5>TIEMS</h5>
-      
-      <Dashboard  />
-      
+        <h5>TIEMS</h5>
+
+        <Router>
+
+            <Dashboard  />
+
+        </Router>  
+
       </div>
     
-    
-</StateProvider>
+    </StateProvider>
   );
 }
