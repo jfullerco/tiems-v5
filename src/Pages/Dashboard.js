@@ -3,7 +3,6 @@ import {Route, Link} from 'react-router-dom'
 import {StateContext} from '../stateContext'
 
 import Login from './Login'
-import SiteList from './Sites/SiteList'
 
 const Dashboard = () => {
   
@@ -11,35 +10,44 @@ const Dashboard = () => {
   
   return (
     
-    <div>
+    <>
       
       {(user.clientLoggedIn != false) ? (
         
+        <>
         <div className="row">
+
           <div className="two columns">  
-            <h5>Dashboard</h5> 
+            <h5><Link to="/">Dashboard</Link></h5> 
           </div>
           
           <div className="one column">  
-          <button 
-            onClick={()=>user.setClientLoggedIn(!user.clientLoggedIn)} 
-            > Logout 
-            </button>
+            <button 
+              onClick={()=>user.setClientLoggedIn(!user.clientLoggedIn)} 
+              > Logout 
+              </button>
           </div>
-        <p />
-        <div className="row">
-          <Route path="/sites" component={SiteList} />
-          <Link to="/sites" className="button">Sites</Link>
-        </div>
 
         </div>
+
+        <div className="row">
+          
+          <div className="two columns">
+            
+            <Link to="/sites">Sites</Link>
+
+          </div>
+
+        </div>
+
+        </>
 
       ) : (
         
         <Login />
         
       )}
-    </div>
+    </>
   )
 }
 

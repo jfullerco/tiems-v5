@@ -1,11 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Route, BrowserRouter as Router} from 'react-router-dom'
+import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
 
 import {StateProvider, StateContext} from './stateContext'
 
 import Dashboard from './Pages/Dashboard'
-import Login from './Pages/Login'
-
+import SiteList from './Pages/Sites/SiteList'
 
 import "./style.css"
 
@@ -23,9 +22,12 @@ export default function App() {
         <h5>TIEMS</h5>
 
         <Router>
+          <Switch>
 
-            <Dashboard  />
+            <Route exact path="/"  component={Dashboard} />
+            <Route path="/sites" component={SiteList} />
 
+          </Switch>
         </Router>  
 
       </div>
