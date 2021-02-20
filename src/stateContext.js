@@ -17,10 +17,10 @@ export const StateProvider = (props) => {
     }
     return (
       <Provider value={{
-         loginState: clientLoggedIn, 
-         updateLoginState: () => setClientLoggedIn({...clientLoggedIn, clientLoggedIn: true}),
-         sessionState: sessionData,
-         updateSessionState: (e) => setSessionData({...sessionData, e}) 
+          clientLoggedIn, 
+          setClientLoggedIn,
+          sessionData, 
+          setSessionData 
       }}>
         {props.children}
       </Provider>

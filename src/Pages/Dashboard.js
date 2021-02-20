@@ -3,23 +3,28 @@ import {StateContext} from '../stateContext'
 import Login from './Login'
 
 const Dashboard = () => {
-
-  const {loginState, updateLoginState} = useContext(StateContext)
+  
+  const user = useContext(StateContext)
   
   return (
     <div>
-      {(loginState.clientLoggedIn != false) ? (
+      {(user.clientLoggedIn != false) ? (
         <div>
           <h5>Dashboard</h5>
           <button 
-            onClick={()=>updateLoginState}
+            onClick={()=>user.setClientLoggedIn(!user.clientLoggedIn)}
             value="Logout"
           /> 
         </div>
       ) : (
-        <Login />
+        <div><Login />
+        <button 
+            onClick={()=>user.setClientLoggedIn(!user.clientLoggedIn)}
+            value="Login"
+          /> </div>
       )}
     </div>
   )
 }
+
 export default Dashboard

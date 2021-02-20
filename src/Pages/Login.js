@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import useLogin from '../Hooks/useLogin'
 import {StateContext} from '../stateContext'
 
@@ -6,10 +6,12 @@ import {StateContext} from '../stateContext'
 export default function Login() {
 
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
-  
-  const handleSubmit = () => {
+  console.log(useLogin)
+  const user = useContext(StateContext)
+
+  const handleSubmit = (event) => {
     
-    useLogin(loginAttempt)
+     useLogin(loginAttempt)
     
   }
   
@@ -19,11 +21,11 @@ export default function Login() {
     setLoginAttempt({...loginAttempt, [name]: value})
     
   }
-  
 
   return(
     <div>
-       <form onSubmit={handleSubmit}>
+       
+      
           <input
             type="text"
             placeholder="user"
@@ -38,15 +40,13 @@ export default function Login() {
             value={loginAttempt.pass}
             onChange={handleInputChange}
           />
-          <input
+          <button
             type="submit"
-            value="Login"
             
-          />
-          </form>
-          
-          
-        
+            onClick={()=>handleSubmit(loginAttempt)}
+          >Login</button>
+      
+      
     </div>
   )
 
