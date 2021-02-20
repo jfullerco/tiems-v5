@@ -3,7 +3,7 @@ import {Route, Link} from 'react-router-dom'
 import {StateContext} from '../stateContext'
 
 import Login from './Login'
-import Sites from './Sites/SiteList'
+import SiteList from './Sites/SiteList'
 
 const Dashboard = () => {
   
@@ -26,9 +26,10 @@ const Dashboard = () => {
             > Logout 
             </button>
           </div>
-        
+        <p />
         <div className="row">
           <Route path="/sites" component={SiteList} />
+          <Link to="/sites" className="button">Sites</Link>
         </div>
 
         </div>
