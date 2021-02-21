@@ -1,20 +1,38 @@
 import React, {useState, useEffect, useContext} from 'react'
-import useLogin from '../Hooks/useLogin'
+import loginService from '../Services/loginService'
 import {StateContext} from '../stateContext'
 
 
 export default function Login() {
 
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
-  console.log(useLogin)
+  
   const user = useContext(StateContext)
 
-  const handleSubmit = (event) => {
+  const handleSubmit = ({user, pass}) => {
     
-     useLogin(loginAttempt)
+    const {data: [login]} = loginService(user, pass)
     
+      login != null ? (
+
+        login.tiemsUser == user && login.tiemsPass == pass ? 
+
+          (
+           user.setClientLoggedIn(true)
+          
+          ) : (
+
+            setLoginErrors("Incorrect username or password")
+
+          )
+        
+      ) : (
+
+        setLoginErrors("Incorrect username or password")
+
+      )  
   }
-  
+  console.log(loginAttempt)
   const handleInputChange = event => {
     
     const {name, value} = event.target
@@ -43,7 +61,7 @@ export default function Login() {
           <button
             type="submit"
             
-            onClick={()=>handleSubmit(loginAttempt)}
+            onClick={handleSubmit(loginAttempt)}
           >Login</button>
       
       
