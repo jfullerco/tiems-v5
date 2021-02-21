@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import http from './http-common'
 
-const getClient = async (id) => {
+const getClient = async (clientID) => {
   
- const {data} = await http.get(`/rest/clients/5f861fe2d279373c00615e26`)
+ const {data} = await http.get(`/rest/clients/${_id}`)
   return data
 
 }

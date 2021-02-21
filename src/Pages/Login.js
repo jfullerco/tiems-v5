@@ -18,7 +18,9 @@ export default function Login() {
     login != null ? (
         login.tiemsUser == user && login.tiemsPass == pass ? 
           (
-            userContext.setClientLoggedIn(true)
+            userContext.setClientLoggedIn(true),
+            userContext.setSessionData(login.tiemsClientID),
+            console.log(userContext.sessionData)
           ) : (
             setLoginErrors("Incorrect username or password")
           )
