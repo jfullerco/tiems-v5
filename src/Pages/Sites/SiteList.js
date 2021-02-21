@@ -1,13 +1,14 @@
-import React, {useState} from 'react'
-import {useQuery, useQueryClient} from 'react-query'
-
+import React, {useState, useContext} from 'react'
+import {Link} from 'react-router-dom'
+import {StateContext} from '../../stateContext'
 
 const SiteList = () => {
   
+  const userInfo = useContext(StateContext)
   
   return (
     <>
-    Site List
+    Site List - <Link to="/">Dashboard</Link>
     </>
   )
 }
