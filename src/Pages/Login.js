@@ -18,8 +18,7 @@ export default function Login() {
     login != null ? (
         login.tiemsUser == user && login.tiemsPass == pass ? 
           (
-            userContext.setClientLoggedIn(true),
-            () => <Redirect to="/" />
+            userContext.setClientLoggedIn(true)
           ) : (
             setLoginErrors("Incorrect username or password")
           )
@@ -27,7 +26,7 @@ export default function Login() {
       ) : (
         setLoginErrors("Incorrect username or password")
       )
-               
+    return <Redirect to="/" />           
   }
   
   const handleInputChange = event => {    

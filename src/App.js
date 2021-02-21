@@ -22,13 +22,8 @@ export default function App() {
 
         <Router>
           <Switch>
-//auth check
-            {(user.clientLoggedIn != true) ? (
-            <Route exact path="/"  component={Login} /> 
-            ) : ( 
+
             <Route exact path="/"  component={Dashboard} />
-            )}
-//routes
             <Route path="/sites" component={SiteList} />
 
           </Switch>
