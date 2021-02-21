@@ -5,7 +5,7 @@ export const StateContext = createContext({})
 export const StateProvider = (props) => {
     const {Provider} = StateContext
     const [clientLoggedIn, setClientLoggedIn] = useState(
-      {clientLoggedIn: false})
+      false)
     const [sessionData, setSessionData] = useState([])
     
     return (

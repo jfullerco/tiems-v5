@@ -1,49 +1,42 @@
 import React, {useState, useEffect, useContext} from 'react'
+import {Redirect} from 'react-router-dom'
 import loginService from '../Services/loginService'
 import {StateContext} from '../stateContext'
 
 
 export default function Login() {
-
+  const userContext = useContext(StateContext)
+  console.log(userContext.clientLoggedIn)
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   
-  const user = useContext(StateContext)
+  const [loginErrors, setLoginErrors] = useState("")
 
-  const handleSubmit = ({user, pass}) => {
+  const handleSubmit = async ({user, pass}) => {
     
-    const {data: [login]} = loginService(user, pass)
+    const {data: [login]} = await loginService(user, pass)
     
-      login != null ? (
-
+    login != null ? (
         login.tiemsUser == user && login.tiemsPass == pass ? 
-
           (
-           user.setClientLoggedIn(true)
-          
+            userContext.setClientLoggedIn(true),
+            () => <Redirect to="/" />
           ) : (
-
             setLoginErrors("Incorrect username or password")
-
           )
-        
+
       ) : (
-
         setLoginErrors("Incorrect username or password")
-
-      )  
+      )
+               
   }
-  console.log(loginAttempt)
-  const handleInputChange = event => {
-    
+  
+  const handleInputChange = event => {    
     const {name, value} = event.target
-    setLoginAttempt({...loginAttempt, [name]: value})
-    
+    setLoginAttempt({...loginAttempt, [name]: value})    
   }
 
   return(
-    <div>
-       
-    
+    <div>    
           <input
             type="text"
             placeholder="user"
@@ -61,10 +54,8 @@ export default function Login() {
           <button
             type="submit"
             
-            onClick={handleSubmit(loginAttempt)}
-          >Login</button>
-      
-      
+            onClick={()=>handleSubmit(loginAttempt)}
+          >Login</button>  
     </div>
   )
 
