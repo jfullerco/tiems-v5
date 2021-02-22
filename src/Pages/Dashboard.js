@@ -9,10 +9,17 @@ const Dashboard = () => {
   
   const user = useContext(StateContext)
   const {clientID} = user.sessionData
+  
   useEffect(() => {
-    const {data} = getClient(clientID)
-    user.setSessionData({data})
-  },[])
+     getSession(clientID)
+  }, [])
+  
+  const getSession = async (clientID) => {
+    const {data} = await getClient(clientID)
+    user.setSessionData({...user.sessionData, data})
+    console.log(user.sessionData)
+  }
+  
   return (  
     <>  
       {(user.clientLoggedIn != false && localStorage.LoggedIn != false) ? (  
@@ -38,6 +45,7 @@ const Dashboard = () => {
             <Switch>
               <Link to="/sites"><button>Sites</button></Link>
             </Switch>
+            <button onClick={getSession}>test</button>
           </div>
 
         </div>

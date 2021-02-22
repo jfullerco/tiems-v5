@@ -3,8 +3,8 @@ import http from './http-common'
 
 const getClient = async (clientID) => {
   
- const {data} = await http.get(`/rest/clients/${clientID}`)
-  return data
+ return await http.get(`/rest/clients/${clientID}`)
+  
 
 }
 export default getClient
