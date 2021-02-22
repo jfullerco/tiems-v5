@@ -11,13 +11,14 @@ const Dashboard = () => {
   const {clientID} = user.sessionData
   
   useEffect(() => {
-     getSession(clientID)
-  }, [])
+     const loadData = () => {getSession()}
+  }, []
+  )
   
-  const getSession = async (clientID) => {
+  const getSession = async () => {
     const {data} = await getClient(clientID)
     user.setSessionData({...user.sessionData, data})
-    console.log(user.sessionData)
+    return console.log(user.sessionData)
   }
   
   return (  
