@@ -7,11 +7,11 @@ import {StateContext} from '../stateContext'
 export default function Login() {
   const userContext = useContext(StateContext)
   console.log(userContext.clientLoggedIn)
-  const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
+  const [loginAttempt, setLoginAttempt] = useState({user: "", pass: "", save: ""})
   
   const [loginErrors, setLoginErrors] = useState("")
 
-  const handleSubmit = async ({user, pass}) => {
+  const handleSubmit = async ({user, pass, save}) => {
     
     const {data: [login]} = await loginService(user, pass)
     
@@ -20,7 +20,8 @@ export default function Login() {
           (
             userContext.setClientLoggedIn(true),
             userContext.setSessionData(login.tiemsClientID),
-            console.log(userContext.sessionData)
+            localStorage.setItem({clientLoggedIn: false})
+                
           ) : (
             setLoginErrors("Incorrect username or password")
           )
@@ -33,7 +34,8 @@ export default function Login() {
   
   const handleInputChange = event => {    
     const {name, value} = event.target
-    setLoginAttempt({...loginAttempt, [name]: value})    
+    setLoginAttempt({...loginAttempt, [name]: value})
+    
   }
 
   return(
@@ -52,6 +54,13 @@ export default function Login() {
             value={loginAttempt.pass}
             onChange={handleInputChange}
           />
+          <div>
+          <input
+            type="checkbox"
+            name="save"
+            value="true"
+            onChange={handleInputChange}
+          /> Remember me </div>
           <button
             type="submit"
             

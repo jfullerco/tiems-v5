@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Route, Link, Switch} from 'react-router-dom'
-import {StateContext} from '../stateContext'
+import {StateContext, saveMe} from '../stateContext'
 
 import Login from './Login'
 
@@ -8,6 +8,7 @@ const Dashboard = () => {
   
   const user = useContext(StateContext)
   
+  console.log(localStorage)
   return (  
     <>  
       {(user.clientLoggedIn != false) ? (  
@@ -32,7 +33,7 @@ const Dashboard = () => {
           
           <div className="two columns">
             <Switch>
-              <Link to="/sites">Sites</Link>
+              <Link to="/sites"><button>Sites</button></Link>
             </Switch>
           </div>
 
