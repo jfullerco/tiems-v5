@@ -15,15 +15,13 @@ export default function Login() {
   const handleSubmit = async ({user, pass, save}) => {
     
     const {data: [login]} = await loginService(user, pass)
-    console.log(tiemsClientID)
+    
     login != null ? (
         login.tiemsUser == user && login.tiemsPass == pass ? 
           (
             userContext.setClientLoggedIn(true),
-            userContext.setSessionData(login.tiemsClientID),
-            localStorage.setItem('LoggedIn', true)
-            
-                
+            userContext.setSessionData(login._parent_id),
+            localStorage.setItem('LoggedIn', saveMe)
           ) : (
             setLoginErrors("Incorrect username or password")
           )
