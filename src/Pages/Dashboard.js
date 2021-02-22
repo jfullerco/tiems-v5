@@ -11,7 +11,7 @@ const Dashboard = () => {
   console.log(localStorage)
   return (  
     <>  
-      {(user.clientLoggedIn != false) ? (  
+      {(user.clientLoggedIn != false && localStorage.LoggedIn != false) ? (  
       <>
 
         <div className="row">
@@ -22,7 +22,7 @@ const Dashboard = () => {
           
           <div className="one column">  
             <button 
-              onClick={()=>user.setClientLoggedIn(!user.clientLoggedIn)} 
+              onClick={()=>(user.setClientLoggedIn(!user.clientLoggedIn), localStorage.setItem('LoggedIn', false))} 
               > Logout 
               </button>
           </div>
