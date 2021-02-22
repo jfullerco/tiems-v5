@@ -8,15 +8,14 @@ export const StateProvider = (props) => {
       false)
     const [sessionData, setSessionData] = useState({
       
-    })
-    const saveMe = useRef()
+    }) 
+    
     return (
       <Provider value={{
           clientLoggedIn, 
           setClientLoggedIn,
           sessionData, 
-          setSessionData,
-          saveMe 
+          setSessionData 
       }}>
         {props.children}
       </Provider>

@@ -6,7 +6,7 @@ import {StateContext} from '../stateContext'
 
 export default function Login() {
   const userContext = useContext(StateContext)
-  //console.log(userContext.clientLoggedIn)
+  
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   const [saveMe, setSaveMe] = useState(false)
   
@@ -20,15 +20,14 @@ export default function Login() {
         login.tiemsUser == user && login.tiemsPass == pass ? 
           (
             userContext.setClientLoggedIn(true),
-            userContext.setSessionData(login._parent_id),
+            userContext.setSessionData({clientID: login._parent_id}),
             localStorage.setItem('LoggedIn', saveMe)
           ) : (
             setLoginErrors("Incorrect username or password")
           )
-
-      ) : (
-        setLoginErrors("Incorrect username or password")
-      )
+          ) : (
+            setLoginErrors("Incorrect username or password")
+          )
     return <Redirect to="/" />           
   }
   
