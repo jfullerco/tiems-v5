@@ -6,7 +6,11 @@ export const StateProvider = (props) => {
     const {Provider} = stateContext
     const [clientLoggedIn, setClientLoggedIn] = useState(
       false)
-    const [sessionData, setSessionData] = useState({}) 
+    const [sessionData, setSessionData] = useState({
+      client_name: "",
+      sites: [{}],
+      _id: ""
+    }) 
     
     return (
       <Provider value={{

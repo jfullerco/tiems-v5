@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Route, Link, Switch} from 'react-router-dom'
+import {Route, Link, Switch, Redirect} from 'react-router-dom'
 import {stateContext} from '../stateContext'
 import getClient from '../Services/clientService'
 
@@ -19,7 +19,11 @@ const Dashboard = () => {
   const getSession = async (clientID) => {
     
     const {data} = await getClient(clientID)
-    userContext.setSessionData(data)
+    userContext.setSessionData({
+      client_name: data.client_name,
+      sites: data.sites,
+      _id: data._id
+    })
     
   }
 
@@ -56,7 +60,7 @@ const Dashboard = () => {
 
       ) : (
         
-        <Login />
+        <Redirect to="/login" />
         
       )}
   </>

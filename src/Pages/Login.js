@@ -1,12 +1,13 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Redirect} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import loginService from '../Services/loginService'
 import {stateContext} from '../stateContext'
 
 
 export default function Login() {
   const userContext = useContext(stateContext)
-  
+  const history = useHistory()
+
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   const [saveMe, setSaveMe] = useState(false)
   
@@ -21,14 +22,17 @@ export default function Login() {
           (
             userContext.setClientLoggedIn(true),
             
-            localStorage.setItem('clientID', login._parent_id)
+            localStorage.setItem('clientID', login._parent_id),
+
+            history.push("/")
+             
           ) : (
             setLoginErrors("Incorrect username or password")
           )
           ) : (
             setLoginErrors("Incorrect username or password")
           )
-    return <Redirect to="/" />           
+              
   }
   
   const handleInputChange = event => {    
