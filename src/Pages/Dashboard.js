@@ -1,35 +1,31 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Route, Link, Switch} from 'react-router-dom'
-import {StateContext, saveMe} from '../stateContext'
+import {stateContext} from '../stateContext'
 import getClient from '../Services/clientService'
 
 import Login from './Login'
 
 const Dashboard = () => {
   
-  const user = useContext(StateContext)
+  const userContext = useContext(stateContext)
   const clientID = localStorage.clientID
   
   useEffect(() => {
      
      getSession(clientID)
      
-     
-  }, [user])
+  }, [])
 
-console.log(clientID)
-console.log(user.sessionData)
-  const getSession = (clientID) => {
+  const getSession = async (clientID) => {
     
-    const {data} = getClient(clientID)
-    console.log(data)
-    user.setSessionData(data)
+    const {data} = await getClient(clientID)
+    userContext.setSessionData(data)
     
   }
 
   return (  
     <>  
-      {(user.clientLoggedIn != false && localStorage.LoggedIn != false) ? (  
+      {(userContext.clientLoggedIn != false && localStorage.LoggedIn != false) ? (  
       <>
         <div className="row">
           
@@ -39,7 +35,7 @@ console.log(user.sessionData)
           
           <div className="one column">  
             <button 
-              onClick={()=>(user.setClientLoggedIn(!user.clientLoggedIn))} 
+              onClick={()=>(userContext.setClientLoggedIn(!user.clientLoggedIn))} 
               > Logout 
               </button>
           </div>
@@ -50,7 +46,7 @@ console.log(user.sessionData)
           
           <div className="three columns">
             <Switch>
-              <Link to="/sites"><button>Sites</button></Link>
+              <div className="row"><Link to="/sites"><button>Sites</button></Link></div>
             </Switch>
             <button onClick={getSession}>test</button>
           </div>

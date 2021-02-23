@@ -1,19 +1,19 @@
 import React, {useState, createContext} from 'react'
 
-export const StateContext = createContext({})
+export const stateContext = createContext({})
 
 export const StateProvider = (props) => {
-    const {Provider} = StateContext
+    const {Provider} = stateContext
     const [clientLoggedIn, setClientLoggedIn] = useState(
       false)
-    const [sessionData, setSessionData] = useState("test") 
+    const [sessionData, setSessionData] = useState({}) 
     
     return (
       <Provider value={{
           clientLoggedIn, 
           setClientLoggedIn,
           sessionData, 
-          setSessionData 
+          setSessionData
       }}>
         {props.children}
       </Provider>

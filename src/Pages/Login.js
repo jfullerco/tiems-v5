@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Redirect} from 'react-router-dom'
 import loginService from '../Services/loginService'
-import {StateContext} from '../stateContext'
+import {stateContext} from '../stateContext'
 
 
 export default function Login() {
-  const userContext = useContext(StateContext)
+  const userContext = useContext(stateContext)
   
   const [loginAttempt, setLoginAttempt] = useState({user: "", pass: ""})
   const [saveMe, setSaveMe] = useState(false)
