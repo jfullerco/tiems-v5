@@ -13,7 +13,7 @@ const SiteList = () => {
     <div className="row">Site List - <Link to="/">Dashboard</Link></div>
     <div className="row">
       {userContext.sessionData.sites ? userContext.sessionData.sites.map((site) => {
-        <div className="row">{console.log(site)}{...site}</div>
+        <div className="row">{...site}</div>
       }) : (<div>no sites</div>)}
     </div>
     </>
