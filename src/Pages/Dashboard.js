@@ -22,7 +22,8 @@ console.log(user.sessionData)
   const getSession = (clientID) => {
     
     const {data} = getClient(clientID)
-    user.setSessionData()
+    console.log(data)
+    user.setSessionData(data)
     
   }
 
