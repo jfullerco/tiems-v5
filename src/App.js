@@ -22,7 +22,7 @@ export default function App() {
 
         <Router>
           <Switch>
-
+            
             <Route exact path="/"  component={Dashboard} />
             <Route path="/sites" component={SiteList} />
 

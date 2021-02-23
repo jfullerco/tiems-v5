@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect, useContext, useRef} from 'react'
 import {Route, Link, Switch} from 'react-router-dom'
 import {StateContext, saveMe} from '../stateContext'
 import getClient from '../Services/clientService'
@@ -8,19 +8,24 @@ import Login from './Login'
 const Dashboard = () => {
   
   const user = useContext(StateContext)
-  const {clientID} = user.sessionData
+  const clientID = localStorage.clientID
   
   useEffect(() => {
-     const loadData = () => {getSession()}
-  }, []
-  )
-  
-  const getSession = async () => {
-    const {data} = await getClient(clientID)
-    user.setSessionData({...user.sessionData, data})
-    return console.log(user.sessionData)
+     
+     getSession(clientID)
+     
+     
+  }, [user])
+
+console.log(clientID)
+console.log(user.sessionData)
+  const getSession = (clientID) => {
+    
+    const {data} = getClient(clientID)
+    user.setSessionData()
+    
   }
-  
+
   return (  
     <>  
       {(user.clientLoggedIn != false && localStorage.LoggedIn != false) ? (  
@@ -42,7 +47,7 @@ const Dashboard = () => {
 
         <div className="row">
           
-          <div className="two columns">
+          <div className="three columns">
             <Switch>
               <Link to="/sites"><button>Sites</button></Link>
             </Switch>

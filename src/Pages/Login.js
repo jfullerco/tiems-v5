@@ -20,8 +20,8 @@ export default function Login() {
         login.tiemsUser == user && login.tiemsPass == pass ? 
           (
             userContext.setClientLoggedIn(true),
-            userContext.setSessionData({clientID: login._parent_id}),
-            localStorage.setItem('LoggedIn', saveMe)
+            
+            localStorage.setItem('clientID', login._parent_id)
           ) : (
             setLoginErrors("Incorrect username or password")
           )
@@ -41,6 +41,7 @@ export default function Login() {
 
   return(
     <div>    
+          <div className="row">
           <input
             type="text"
             placeholder="user"
@@ -48,6 +49,8 @@ export default function Login() {
             value={loginAttempt.user}
             onChange={handleInputChange}
           />
+          </div>
+          <div className="row">
           <input
             type="password"
             placeholder="pass"
@@ -55,18 +58,22 @@ export default function Login() {
             value={loginAttempt.pass}
             onChange={handleInputChange}
           />
-          <div>
+          </div>
+          <div className="row">
           <input
             type="checkbox"
             name="save"
            
             onChange={handleSaveMe}
-          /> Remember me </div>
+          /> Remember me 
+          </div>
+          <div className="row">
           <button
             type="submit"
             
             onClick={()=>handleSubmit(loginAttempt)}
-          >Login</button>  
+          >Login</button>
+          </div>  
     </div>
   )
 
