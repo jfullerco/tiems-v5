@@ -26,7 +26,7 @@ const Dashboard = () => {
     })
     
   }
-
+console.log(userContext.sessionData)
   return (  
     <>  
       {(userContext.clientLoggedIn != false && localStorage.LoggedIn != false) ? (  

@@ -8,7 +8,7 @@ export const StateProvider = (props) => {
       false)
     const [sessionData, setSessionData] = useState({
       client_name: "",
-      sites: [{}],
+      sites: [],
       _id: ""
     }) 
     
