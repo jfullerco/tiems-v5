@@ -2,6 +2,8 @@ import React, {useState, useEffect, useContext} from 'react'
 import {Link} from 'react-router-dom'
 import {stateContext} from '../../stateContext'
 
+import LogoutButton from '../../Components/LogoutButton'
+
 const SiteList = () => {
   
   const userContext = useContext(stateContext)
@@ -11,7 +13,7 @@ const SiteList = () => {
     
   return (
     <>
-    <div className="row">Site List - <Link to="/">Dashboard</Link></div>
+    <div className="row">Site List - </div>
     <div className="row">
     <div className="four columns">
     <p />
