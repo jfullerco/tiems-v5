@@ -7,14 +7,25 @@ const SiteList = () => {
   const userContext = useContext(stateContext)
   const {sessionData: {sites}} = userContext
   
-  console.log(Object.keys([sites]))
+  console.log()
     
   return (
     <>
     <div className="row">Site List - <Link to="/">Dashboard</Link></div>
     <div className="row">
-      
-      
+    <div className="four columns">
+    <p />
+    {sites != !sites ? sites.map(site => (
+       <div className="button">
+        {site.site_name}
+       </div>
+      )
+    ) : (
+      <div className="button">
+          <span className="error">No sites found</span>
+      </div>
+    )}
+    </div>
     </div>
     </>
   )
