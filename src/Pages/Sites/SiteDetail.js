@@ -3,16 +3,19 @@ import {Link, Redirect, useParams} from 'react-router-dom'
 
 import {stateContext} from '../../stateContext'
 
+import LogoutButton from '../../Components/LogoutButton'
+
 const SiteDetail = () => {
   const id = useParams()
   const userContext = useContext(stateContext)
   const {sessionData: {sites}} = userContext
-  const getSite = (site) => site._id == id 
-  const site = sites.slice(getSite)
+  
+  const siteDetail = sites.find(site => console.log(id))
 
   return (
     <div>
-    {console.log(site)}
+    Site Details - <LogoutButton />
+    {console.log(siteDetail)}
     </div>
   )
 }

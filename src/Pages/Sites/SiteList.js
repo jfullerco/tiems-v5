@@ -13,7 +13,7 @@ const SiteList = () => {
     
   return (
     <>
-    <div className="row">Site List - </div>
+    <div className="row">Site List - <LogoutButton /></div>
     <div className="row">
     <div className="four columns">
     <p />

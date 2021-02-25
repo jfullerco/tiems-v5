@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, Redirect} from 'react-router-dom'
-import {stateContext} from '../../stateContext'
+import {stateContext} from '../stateContext'
 
 const LogoutButton = () => {
   const userContext = React.useContext(stateContext)
