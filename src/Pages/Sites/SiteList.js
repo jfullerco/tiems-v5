@@ -17,7 +17,7 @@ const SiteList = () => {
     <p />
     {sites != !sites ? sites.map(site => (
        <div className="button">
-        {site.site_name}
+        <Link to={`/sites/${site._id}`}>{site.site_name}</Link>
        </div>
       )
     ) : (

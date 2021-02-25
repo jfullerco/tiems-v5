@@ -6,6 +6,7 @@ import {StateProvider, stateContext} from './stateContext'
 import Dashboard from './Pages/Dashboard'
 import Login from './Pages/Login'
 import SiteList from './Pages/Sites/SiteList'
+import SiteDetail from './Pages/Sites/SiteDetail'
 
 import "./style.css"
 
@@ -25,7 +26,8 @@ export default function App() {
             
             <Route exact path="/"  component={Dashboard} />
             <Route path="/login" component={Login} />
-            <Route path="/sites" component={SiteList} />
+            <Route exact path="/sites" component={SiteList} />
+            <Route path="/sites/:id" component={SiteDetail} />
 
           </Switch>
         </Router>  

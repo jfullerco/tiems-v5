@@ -41,7 +41,7 @@ console.log(userContext.sessionData)
             <button 
               onClick={()=>(userContext.setClientLoggedIn(!userContext.clientLoggedIn))} 
               > Logout 
-              </button>
+            </button>
           </div>
 
         </div>
