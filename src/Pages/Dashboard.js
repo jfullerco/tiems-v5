@@ -39,7 +39,7 @@ console.log(userContext.sessionData)
           
           <div className="one column">  
             <button 
-              onClick={()=>(userContext.setClientLoggedIn(!user.clientLoggedIn))} 
+              onClick={()=>(userContext.setClientLoggedIn(!userContext.clientLoggedIn))} 
               > Logout 
               </button>
           </div>
