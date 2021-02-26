@@ -9,10 +9,6 @@ const LogoutButton = () => {
     <button>
       <Link to="/">Dashboard</Link>
     </button>
-    <button 
-      onClick={()=>(userContext.setClientLoggedIn(!userContext.clientLoggedIn))} 
-      > Logout 
-    </button>
     </>
   )
 }
