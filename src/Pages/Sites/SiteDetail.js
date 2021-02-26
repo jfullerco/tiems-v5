@@ -10,9 +10,7 @@ const SiteDetail = () => {
   const userContext = useContext(stateContext)
   const {sessionData: {sites}} = userContext
   
-  const [key] = sites
-  const siteDetail = Object.keys(key).map(site[key]._id == id)
-
+  console.log(sites)
   return (
     <div>
     Site Details - <LogoutButton />
