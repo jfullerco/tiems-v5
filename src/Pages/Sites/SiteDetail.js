@@ -10,12 +10,12 @@ const SiteDetail = () => {
   const userContext = useContext(stateContext)
   const {sessionData: {sites}} = userContext
   
-  const siteDetail = sites.find(site => console.log(id))
+  const [key] = sites
 
   return (
     <div>
     Site Details - <LogoutButton />
-    {console.log(siteDetail)}
+    {}
     </div>
   )
 }
