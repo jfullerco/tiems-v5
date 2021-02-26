@@ -11,6 +11,7 @@ const SiteDetail = () => {
   const {sessionData: {sites}} = userContext
   
   const [key] = sites
+  const siteDetail = Object.keys(key).map(site[key]._id == id)
 
   return (
     <div>
