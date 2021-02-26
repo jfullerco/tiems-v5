@@ -18,9 +18,11 @@ const SiteList = () => {
     <div className="four columns">
     <p />
     {sites != !sites ? sites.map(site => (
+       <span>
        <div className="button" key={site._id}>
         <Link to={`/sites/${site._id}`}>{site.site_name}</Link>
        </div>
+       </span>
       )
     ) : (
       <div className="button">
