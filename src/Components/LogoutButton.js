@@ -5,7 +5,7 @@ import {stateContext} from '../stateContext'
 const LogoutButton = () => {
   const userContext = React.useContext(stateContext)
   return (
-    <div className="u-pull-right">
+    <div className="navBtn">
     <button>
       <Link to="/">Dashboard</Link>
     </button>

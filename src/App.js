@@ -20,10 +20,10 @@ export default function App() {
     <StateProvider>
       <Router>
       <div className="container"> 
-      
+      <div className="row">
         TIEMS
-        <LogoutButton /><p />
-        
+        <LogoutButton />
+      </div>
           <Switch>
             
             <Route exact path="/"  component={Dashboard} />
