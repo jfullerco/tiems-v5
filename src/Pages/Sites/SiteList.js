@@ -14,11 +14,12 @@ const SiteList = () => {
   return (
     <>
     <div className="row">
-    Site List
+      Site List
     </div>
     
     <div className="row">
     <div className="four columns">
+
     <p />
     
     {sites != !sites ? sites.map(site => (
@@ -33,6 +34,7 @@ const SiteList = () => {
           <span className="error">No sites found</span>
       </div>
     )}
+    
     </div>
     </div>
     </>
