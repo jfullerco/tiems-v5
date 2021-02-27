@@ -16,13 +16,13 @@ const SiteList = () => {
     <div className="row">
     Site List
     </div>
-    <button onClick={goBack}>Back</button>
+    
     <div className="row">
     <div className="four columns">
     <p />
     <span><div><LogoutButton /></div></span>
     {sites != !sites ? sites.map(site => (
-       <span>
+       <span key={site._id}>
        <div className="button" key={site._id}>
         <Link to={`/sites/${site._id}`}>{site.site_name}</Link>
        </div>
