@@ -2,14 +2,10 @@ import React, {useState, useEffect, useContext} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import {stateContext} from '../../stateContext'
 
-
-
 const SiteList = () => {
   
   const userContext = useContext(stateContext)
   const {sessionData: {sites}} = userContext
-  const {goBack} = useHistory()
-  console.log(goBack)
     
   return (
     <>

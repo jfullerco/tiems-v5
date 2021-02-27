@@ -31,7 +31,7 @@ const Dashboard = () => {
 console.log(userContext.sessionData)
   return (  
     <>  
-      {(localStorage.LoggedIn != null) ? (  
+      {(localStorage.LoggedIn === "true") ? (  
       <>
         <div className="row">  
             <h5>Dashboard</h5> 
