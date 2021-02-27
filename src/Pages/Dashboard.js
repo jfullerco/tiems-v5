@@ -43,18 +43,21 @@ console.log(userContext.sessionData)
               > Logout 
             </button>
           </div>
-
+          
         </div>
 
         <div className="row">
-          
-          <div className="three columns">
+          <div className="four columns">
             <Switch>
-              <div className="row"><Link to="/sites"><button>Sites</button></Link></div>
+              <span>
+                <Link to="/sites">
+                  <div className="button">
+                    Sites
+                    </div>
+                </Link>
+              </span>
             </Switch>
-            <button onClick={getSession}>test</button>
           </div>
-
         </div>
       </>
 

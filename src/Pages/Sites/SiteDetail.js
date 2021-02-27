@@ -17,15 +17,17 @@ const SiteDetail = () => {
     {siteDetails ? (
       <table className="u-full-width">
       <thead>
+      <tr>
         <th>Site Name</th>
         <th>Address</th>
+      </tr>
       </thead>
       <tbody>
         <tr>
         <td>{siteDetails.site_name}</td>
         <td>
           {siteDetails.site_add1}
-          {siteDetails.site_add2} 
+          {siteDetails.site_add2} <br />
           {siteDetails.site_city} {siteDetails.site_state}, {siteDetails.site_zip}
         </td>
         </tr>
