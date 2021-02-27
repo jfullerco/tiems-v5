@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import {stateContext} from '../../stateContext'
 
-import LogoutButton from '../../Components/LogoutButton'
+
 
 const SiteList = () => {
   
@@ -20,7 +20,7 @@ const SiteList = () => {
     <div className="row">
     <div className="four columns">
     <p />
-    <span><div><LogoutButton /></div></span>
+    
     {sites != !sites ? sites.map(site => (
        <span key={site._id}>
        <div className="button" key={site._id}>

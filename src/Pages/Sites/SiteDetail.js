@@ -4,6 +4,7 @@ import {Link, Redirect, useParams} from 'react-router-dom'
 import {stateContext} from '../../stateContext'
 
 import LogoutButton from '../../Components/LogoutButton'
+import AssetList from '../Assets/AssetList'
 
 const SiteDetail = () => {
   const {id} = useParams()
@@ -13,8 +14,9 @@ const SiteDetail = () => {
   console.log(siteDetails)
   return (
     <div>
-    Site Details - <LogoutButton />
+    Site Details <p />
     {siteDetails ? (
+      <>
       <table className="u-full-width">
       <thead>
       <tr>
@@ -33,6 +35,8 @@ const SiteDetail = () => {
         </tr>
       </tbody>
     </table>
+    <AssetList id={id} />
+    </>
     ) : (
       <div className="button">
         <span className="error">

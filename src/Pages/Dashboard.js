@@ -1,7 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Route, Link, Switch, Redirect} from 'react-router-dom'
 import {stateContext} from '../stateContext'
+
 import getClient from '../Services/clientService'
+import LogoutButton from '../Components/LogoutButton'
 
 import Login from './Login'
 
@@ -34,16 +36,9 @@ console.log(userContext.sessionData)
         <div className="row">
           
           <div className="two columns">  
-            <h5><Link to="/">Dashboard</Link></h5> 
+            <h5>Dashboard</h5> 
           </div>
-          
-          <div className="one column">  
-            <button 
-              onClick={()=>(userContext.setClientLoggedIn(!userContext.clientLoggedIn))} 
-              > Logout 
-            </button>
-          </div>
-          
+
         </div>
 
         <div className="row">

@@ -8,6 +8,8 @@ import Login from './Pages/Login'
 import SiteList from './Pages/Sites/SiteList'
 import SiteDetail from './Pages/Sites/SiteDetail'
 
+import LogoutButton from './Components/LogoutButton'
+
 import "./style.css"
 
 export default function App() {
@@ -16,12 +18,12 @@ export default function App() {
   
   return (
     <StateProvider>
-       
+      <Router>
       <div className="container"> 
       
-        <h5>TIEMS</h5>
-
-        <Router>
+        TIEMS
+        <LogoutButton /><p />
+        
           <Switch>
             
             <Route exact path="/"  component={Dashboard} />
@@ -30,10 +32,10 @@ export default function App() {
             <Route path="/sites/:id" component={SiteDetail} />
 
           </Switch>
-        </Router>  
+          
 
       </div>
-    
+    </Router>
     </StateProvider>
   );
 }
