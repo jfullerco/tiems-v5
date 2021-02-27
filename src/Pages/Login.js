@@ -23,7 +23,7 @@ export default function Login() {
             userContext.setClientLoggedIn(true),
             
             localStorage.setItem('clientID', login._parent_id),
-
+            localStorage.setItem('LoggedIn', "true"),
             history.push("/")
              
           ) : (

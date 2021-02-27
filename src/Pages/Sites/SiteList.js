@@ -14,13 +14,11 @@ const SiteList = () => {
   return (
     <>
     <div className="row">
-      Site List
+      <h5>Site List</h5>
     </div>
     
     <div className="row">
     <div className="four columns">
-
-    <p />
     
     {sites != !sites ? sites.map(site => (
        <span key={site._id}>

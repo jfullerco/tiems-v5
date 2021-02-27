@@ -14,7 +14,7 @@ const SiteDetail = () => {
   console.log(siteDetails)
   return (
     <div>
-    Site Details <p />
+    <h5>Site Details</h5> <p />
     {siteDetails ? (
       <>
       <table className="u-full-width">

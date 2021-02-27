@@ -33,12 +33,8 @@ console.log(userContext.sessionData)
     <>  
       {(localStorage.LoggedIn != null) ? (  
       <>
-        <div className="row">
-          
-          <div className="two columns">  
+        <div className="row">  
             <h5>Dashboard</h5> 
-          </div>
-
         </div>
 
         <div className="row">

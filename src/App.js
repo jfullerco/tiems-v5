@@ -21,7 +21,7 @@ export default function App() {
       <Router>
       <div className="container"> 
       <div className="row">
-        TIEMS
+        <div className="u-float-left"><h6>TIEMS</h6></div>
         <LogoutButton />
       </div>
           <Switch>
