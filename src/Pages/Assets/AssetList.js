@@ -39,8 +39,8 @@ const AssetList = ({id}) => {
           <tr key={asset._id}>
             <td>{asset.asset_ID}</td>
             <td>{asset.asset_Vendor}</td>
-            <td>{asset.assetType}</td>
-            <td>{asset.assetStatus}</td>
+            <td>{asset.asset_Type}</td>
+            <td>{asset.asset_Status}</td>
           </tr>
         )) : (
           "Assets loading"
