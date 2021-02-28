@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import getSite from '../../Services/siteService'
 
 const AssetList = ({id}) => {
@@ -31,6 +32,9 @@ const AssetList = ({id}) => {
           <th>
           Status
           </th>
+          <th>
+          <Link to="/add:asset">Add Service</Link>
+          </th>
         </tr>
         </thead>
         <tbody>
@@ -41,6 +45,7 @@ const AssetList = ({id}) => {
             <td>{asset.asset_Vendor}</td>
             <td>{asset.asset_Type}</td>
             <td>{asset.asset_Status}</td>
+            <td></td>
           </tr>
         )) : (
           "Assets loading"

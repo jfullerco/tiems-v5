@@ -19,7 +19,8 @@ const SiteList = () => {
     {sites != !sites ? sites.map(site => (
        <span key={site._id}>
         <Link to={`/sites/${site._id}`}>
-        <div className="button">{site.site_name}</div>
+        <div className="button">{site.site_name}
+        <span className="u-pull-right"> .... </span></div>
         </Link>
        </span>
       )

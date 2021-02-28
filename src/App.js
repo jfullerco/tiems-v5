@@ -21,8 +21,8 @@ export default function App() {
       <Router>
       <div className="container"> 
       <div className="row">
-        <div className="u-float-left"><h6>TIEMS</h6></div>
-        <LogoutButton />
+        <div className="u-pull-left"><h6>TIEMS</h6></div>
+        <div className="u-pull-right"><LogoutButton /></div>
       </div>
           <Switch>
             
