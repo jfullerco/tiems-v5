@@ -37,8 +37,8 @@ const AssetList = ({id}) => {
         
         {siteAssets ? siteAssets.map(asset => (
           <tr key={asset._id}>
-            <td>{asset.assetID}</td>
-            <td>{asset.assetVendor}</td>
+            <td>{asset.asset_ID}</td>
+            <td>{asset.asset_Vendor}</td>
             <td>{asset.assetType}</td>
             <td>{asset.assetStatus}</td>
           </tr>
