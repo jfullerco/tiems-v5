@@ -11,6 +11,7 @@ const SiteList = () => {
     <>
     <div className="row">
       <h5>Site List</h5>
+      <Link to={`/addSite/${userContext.sessionData._id}`}>Add</Link>
     </div>
     
     <div className="row">

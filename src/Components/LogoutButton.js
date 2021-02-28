@@ -6,13 +6,9 @@ const LogoutButton = () => {
   const userContext = React.useContext(stateContext)
   return (
     <div className="navBtn">
-    <button>
-      <Link to="/">Dashboard</Link>
-    </button>
-    <button 
-      onClick={()=>(console.log(localStorage))} 
-      > Logout 
-    </button>
+    
+    <h6>  <Link to="/">Dashboard</Link> </h6>
+    
     </div>
   )
 }
